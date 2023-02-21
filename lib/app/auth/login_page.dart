@@ -2,7 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_app/app/auth/login_form.dart';
-import 'package:mobile_app/app/home/home_page.dart';
+import 'package:mobile_app/app/navigation/navigation_page.dart';
 import 'package:mobile_app/models/request/login_body.dart';
 import 'package:mobile_app/services/auth_service.dart';
 
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Get.back();
       if (result.token != null) {
-        Get.to<void>(() => const HomePage());
+        Get.to<void>(() => const NavigationPage());
       } else {
         Get.snackbar('Login Gagal', result.message);
       }

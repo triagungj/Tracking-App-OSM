@@ -6,4 +6,8 @@ class LocalService {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(KeyConstant.accessTokenKey);
   }
+  Future<bool?> isDriverAccount() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(KeyConstant.isDriverKey);
+  }
 }

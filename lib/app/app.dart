@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:mobile_app/app/auth/login_page.dart';
-import 'package:mobile_app/app/home/home_page.dart';
+import 'package:mobile_app/app/navigation/navigation_page.dart';
 import 'package:mobile_app/services/local_service.dart';
 
 class App extends StatelessWidget {
@@ -18,7 +18,7 @@ class App extends StatelessWidget {
           future: LocalService().getLocalToken(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const HomePage();
+              return const NavigationPage();
             } else if (snapshot.connectionState == ConnectionState.waiting) {
               return loadingScreen();
             } else {

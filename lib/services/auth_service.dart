@@ -36,14 +36,14 @@ class AuthService {
         log('${e.response!.data}');
         log('${e.response!.headers}');
         return LoginModel(
-          status: e.response?.statusCode ?? 404,
-          message: e.response?.data['message'] ?? '',
+          status: e.response?.statusCode ?? 500,
+          message: e.response?.data['message'] ?? 'Server Error',
         );
       } else {
         log(e.message);
         return LoginModel(
           status: e.response?.statusCode ?? 404,
-          message: e.response?.data['message'] ?? '',
+          message: e.response?.data['message'] ?? 'Serever Error',
         );
       }
     }
