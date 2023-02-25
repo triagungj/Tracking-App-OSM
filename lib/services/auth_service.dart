@@ -30,19 +30,19 @@ class AuthService {
         prefs.setString(KeyConstant.accessTokenKey, responseModel.token!);
       }
 
-      return LoginModel.fromJson(response.data);
+      return responseModel;
     } on DioError catch (e) {
       if (e.response != null) {
         log('${e.response!.data}');
         log('${e.response!.headers}');
         return LoginModel(
-          status: e.response?.statusCode ?? 500,
+          status: e.response?.data['status'] ?? 500,
           message: e.response?.data['message'] ?? 'Server Error',
         );
       } else {
         log(e.message);
         return LoginModel(
-          status: e.response?.statusCode ?? 404,
+          status: e.response?.data['status'] ?? 500,
           message: e.response?.data['message'] ?? 'Serever Error',
         );
       }

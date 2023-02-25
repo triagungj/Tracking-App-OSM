@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Get.back();
       if (result.token != null) {
-        Get.to<void>(() => const NavigationPage());
+        Get.off<void>(() => const NavigationPage());
       } else {
         Get.snackbar('Login Gagal', result.message);
       }
